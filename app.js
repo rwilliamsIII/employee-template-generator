@@ -121,3 +121,31 @@ function createEngineer(){
     })
 }
 
+function createIntern(){
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Please enter intern's name:",
+            name: "internName"
+        },
+        {
+            type: "input",
+            message: "Please enter intern's email:",
+            name: "internEmail"
+        },
+        {
+            type: "input",
+            message: "Please enter intern's employee id:",
+            name: "internId"
+        },
+        {
+            type: "input",
+            message: "Please enter intern's school:",
+            name: "internSchool"
+        }
+    ]).then(function(response){
+        let newIntern = new Intern(response.internName, response.internEmail, response.internId, response.internSchool);
+        team.push(newIntern)
+        teamBuilder();
+    })
+}
