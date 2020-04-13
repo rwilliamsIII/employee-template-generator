@@ -87,7 +87,7 @@ function createManager(){
             name: "managerOffice"
         }
     ]).then(function(response){
-        let newManager = new Manager(response.managerName, response.managerEmail, response.managerId, response.managerOffice);
+        let newManager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice);
         team.push(newManager)
         teamBuilder();
     })
@@ -116,7 +116,7 @@ function createEngineer(){
             name: "engineerUser"
         }
     ]).then(function(response){
-        let newEngineer = new Engineer(response.engineerName, response.engineerEmail, response.engineerId, response.engineerUser);
+        let newEngineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerUser);
         team.push(newEngineer);
         teamBuilder();
     })
@@ -145,7 +145,7 @@ function createIntern(){
             name: "internSchool"
         }
     ]).then(function(response){
-        let newIntern = new Intern(response.internName, response.internEmail, response.internId, response.internSchool);
+        let newIntern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
         team.push(newIntern)
         teamBuilder();
     })
