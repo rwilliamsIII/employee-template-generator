@@ -149,3 +149,10 @@ function createIntern(){
         teamBuilder();
     })
 }
+
+fs.writeFileSync(outputPath, render(team), function(err){
+    if (err){
+        return console.log(err)
+    }
+    console.log("Success!");
+});
