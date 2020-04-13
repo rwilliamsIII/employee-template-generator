@@ -14,7 +14,7 @@ function teamBuilder(){
     inquirer.prompt([
         {
             type: "list",
-            choice: ["Add Employee", "Finish Team"],
+            choices: ["Add Employee", "Finish Team"],
             message: "What would you like to do?",
             name: "userChoice"
         }
@@ -48,7 +48,7 @@ function teamBuilder(){
                 break;
             case "Finish Team":
                 if(team.length > 0){
-                    render(team);
+                    writeTeam(render(team));
                     console.log(team);
                     console.log("Success!")
                 }else{
@@ -62,6 +62,7 @@ function teamBuilder(){
     })
 }
 teamBuilder();
+
 
 function createManager(){
     inquirer.prompt([
@@ -150,9 +151,11 @@ function createIntern(){
     })
 }
 
-fs.writeFileSync(outputPath, render(team), function(err){
-    if (err){
-        return console.log(err)
-    }
-    console.log("Success!");
-});
+function writeTeam(){
+    fs.writeFileSync(outputPath, render(team), function(err){
+        if (err){
+            return console.log(err)
+        }
+        console.log("Success!");
+    });
+}
