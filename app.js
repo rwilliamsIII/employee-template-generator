@@ -93,6 +93,31 @@ function createManager(){
 }
 
 function createEngineer(){
-    
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Please enter engineer's name:",
+            name: "engineerName"
+        },
+        {
+            type: "input",
+            message: "Please enter engineer's email address:",
+            name: "engineerEmail"
+        },
+        {
+            type: "input",
+            message: "Please enter engineer's employee id:",
+            name: "engineerId"
+        },
+        {
+            type: "input",
+            message: "Please enter engineer's github username:",
+            name: "engineerUser"
+        }
+    ]).then(function(response){
+        let newEngineer = new Engineer(response.engineerName, response.engineerEmail, response.engineerId, response.engineerUser);
+        team.push(newEngineer);
+        teamBuilder();
+    })
 }
 
